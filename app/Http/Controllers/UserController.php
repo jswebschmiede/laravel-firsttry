@@ -25,7 +25,7 @@ class UserController extends Controller
         // Login the user
         auth()->login($user);
 
-        return redirect()->route('home');
+        return redirect()->route('dashboard');
     }
 
     public function logout(): RedirectResponse
@@ -52,6 +52,6 @@ class UserController extends Controller
         // Regenerate the session
         $request->session()->regenerate();
 
-        return redirect()->route('home');
+        return redirect()->route('dashboard');
     }
 }
