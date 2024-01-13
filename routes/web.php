@@ -17,7 +17,7 @@ use App\Models\Post;
 */
 
 Route::get('/', function () {
-    $posts = Post::with('user')->get();
+    $posts = Post::with('user')->latest()->get();
 
     return view('home', [
         'posts' => $posts
@@ -28,7 +28,7 @@ Route::get('/', function () {
 Route::get('/register', function () {
     return view('register');
 })->name('register');
-Route::post('/register-account', [UserController::class, 'registerAccount']);
+Route::post('/register-account', [UserController::class, 'registerAccount'])->name('register-account');
 Route::post('/logout', [UserController::class, 'logout'])->name('logout');
 
 // Login
