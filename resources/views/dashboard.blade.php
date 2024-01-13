@@ -2,7 +2,7 @@
     @section('title', 'FirstTry - Ctreate Blog Post')
 
     @section('content')
-        <x-section>
+        <x-ui.section>
             <h1 class="text-4xl mb-12 font-bold text-center text-slate-600">Welcome, {{ auth()->user()->name }}!</h1>
 
             <form class="p-8 w-full border border-slate-200 rounded-md shadow-md" action="{{ route('create-post') }}"
@@ -37,9 +37,9 @@
                     </button>
                 </div>
             </form>
-        </x-section>
+        </x-ui.section>
 
-        <x-section>
+        <x-ui.section>
             <h2 class="text-4xl mb-12 font-bold text-center text-slate-600">Your Blog Posts</h2>
             @if ($posts->isEmpty())
                 <p class="text-center text-slate-600">You have no posts yet.</p>
@@ -54,6 +54,6 @@
                     </article>
                 @endforeach
             @endif
-        </x-section>
+        </x-ui.section>
     @endsection
 </x-layout>

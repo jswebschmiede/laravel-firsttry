@@ -6,9 +6,9 @@
             {{ redirect()->route('home') }}
         @endauth
 
-        <x-section>
+        <x-ui.section>
             <div class="max-w-96 mx-auto w-full">
-                <form class="p-8 w-full border border-slate-200 rounded-md shadow-md" action="{{ route('register') }}"
+                <form class="p-8 w-full border border-slate-200 rounded-md shadow-md" action="{{ route('register-account') }}"
                     method="POST">
                     @csrf
                     <legend class="text-xl text-center font-medium text-slate-600">Register</legend>
@@ -48,6 +48,6 @@
                     </div>
                 </form>
             </div>
-        </x-section>
+        </x-ui.section>
     @endsection
 </x-layout>

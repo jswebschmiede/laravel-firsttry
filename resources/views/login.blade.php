@@ -6,7 +6,7 @@
             {{ redirect()->route('home') }}
         @endauth
 
-        <x-section>
+        <x-ui.section>
             <div class="max-w-96 mx-auto w-full">
                 <form class="p-8 border w-full border-slate-200 rounded-md shadow-md" action="{{ route('login') }}"
                     method="POST">
@@ -39,6 +39,6 @@
                     </div>
                 </form>
             </div>
-        </x-section>
+        </x-ui.section>
     @endsection
 </x-layout>

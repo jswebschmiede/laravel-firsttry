@@ -1,8 +1,4 @@
-<?php
-/**
- * Header component
- */
-?>
+{{-- Header Component --}}
 
 <header class="w-full bg-white shadow-md py-4">
     <div class="flex justify-between items-center max-w-[calc(100%_-_6rem)] w-full mx-auto">

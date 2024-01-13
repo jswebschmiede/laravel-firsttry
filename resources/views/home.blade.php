@@ -2,8 +2,9 @@
     @section('title', 'FirstTry - Home')
 
     @section('content')
-        <x-section>
+        <x-ui.section>
             <h1 class="text-4xl mb-12 font-bold text-center text-slate-600">Blog</h1>
+
             @if ($posts->isEmpty())
                 <p class="text-center text-slate-600">Sorry, no posts yet.</p>
             @else
@@ -17,6 +18,6 @@
                     </article>
                 @endforeach
             @endif
-        </x-section>
+        </x-ui.section>
     @endsection
 </x-layout>

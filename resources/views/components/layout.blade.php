@@ -16,11 +16,13 @@
 </head>
 
 <body class="h-full font-sans antialiased">
-    <x-header />
+    <x-ui.header />
 
     <main>
         @yield('content')
     </main>
+
+    <x-ui.footer />
 </body>
 
 </html>
