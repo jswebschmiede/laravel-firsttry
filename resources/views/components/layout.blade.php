@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>@yield('title')</title>
+    <title>{{ $title ?? 'Page' }} - FirstTry</title>
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -15,11 +15,11 @@
     @vite(['resources/js/app.js', 'resources/css/app.css'])
 </head>
 
-<body class="h-full font-sans antialiased">
+<body class="flex flex-col min-h-full font-sans antialiased">
     <x-ui.header />
 
-    <main>
-        @yield('content')
+    <main class="flex-1">
+        {{ $slot }}
     </main>
 
     <x-ui.footer />
