@@ -8,7 +8,7 @@ use Illuminate\Http\Request;
 
 class UserController extends Controller
 {
-    public function register(Request $request): RedirectResponse
+    public function registerAccount(Request $request): RedirectResponse
     {
         $incomingData = $request->validate([
             'name' => 'required|string',

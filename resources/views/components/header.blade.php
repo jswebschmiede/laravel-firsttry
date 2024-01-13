@@ -20,6 +20,7 @@
                     <button title="Logout" type="submit" class="text-slate-600 hover:text-slate-500">Logout</button>
                 </form>
             @else
+                <a title="Register" href="{{ route('register') }}" class="text-slate-600 hover:text-slate-500">Register</a>
                 <a title="Login" href="{{ route('login') }}" class="text-slate-600 hover:text-slate-500">Login</a>
             @endauth
         </nav>

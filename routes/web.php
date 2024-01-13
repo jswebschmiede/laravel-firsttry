@@ -17,11 +17,7 @@ use App\Models\Post;
 */
 
 Route::get('/', function () {
-    // $posts = Post::with('user')->get();
-    $posts = [];
-    if (auth()->check()) {
-        $posts = auth()->user()->posts()->latest()->get();
-    }
+    $posts = Post::with('user')->get();
 
     return view('home', [
         'posts' => $posts
@@ -29,7 +25,10 @@ Route::get('/', function () {
 })->name("home");
 
 
-Route::post('/register', [UserController::class, 'register'])->name('register');
+Route::get('/register', function () {
+    return view('register');
+})->name('register');
+Route::post('/register-account', [UserController::class, 'registerAccount']);
 Route::post('/logout', [UserController::class, 'logout'])->name('logout');
 
 // Login
@@ -37,10 +36,16 @@ Route::get('/login', function () {
     return view('login');
 })->name('login');
 
-Route::post('/login', [UserController::class, 'login'])->name('login');
+Route::post('/login', [UserController::class, 'login']);
 
 Route::get('/dashboard', function () {
-    return view('dashboard');
+    $posts = [];
+    if (auth()->check()) {
+        $posts = auth()->user()->posts()->latest()->get();
+    }
+    return view('dashboard', [
+        'posts' => $posts
+    ]);
 })->name('dashboard');
 
 Route::post('/create-post', [PostController::class, 'createPost'])->name('create-post');
