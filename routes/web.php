@@ -24,28 +24,16 @@ Route::get('/', function () {
     ]);
 })->name("home");
 
-
-Route::get('/register', function () {
-    return view('register');
-})->name('register');
-Route::post('/register-account', [UserController::class, 'registerAccount'])->name('register-account');
-Route::post('/logout', [UserController::class, 'logout'])->name('logout');
-
-// Login
-Route::get('/login', function () {
-    return view('login');
+/* User Routes */
+Route::get('/user/login', function () {
+    return view('user.login');
 })->name('login');
+Route::get('/user/dashboard', [UserController::class, 'dashboard'])->name('dashboard');
+Route::get('/user/create', [UserController::class, 'index'])->name('register');
+Route::post('user.create', [UserController::class, 'create'])->name('user.create');
+Route::post('user.logout', [UserController::class, 'logout'])->name('user.logout');
+Route::post('user.login', [UserController::class, 'login'])->name('user.login');
 
-Route::post('/login', [UserController::class, 'login']);
-
-Route::get('/dashboard', function () {
-    $posts = [];
-    if (auth()->check()) {
-        $posts = auth()->user()->posts()->latest()->get();
-    }
-    return view('dashboard', [
-        'posts' => $posts
-    ]);
-})->name('dashboard');
-
-Route::post('/create-post', [PostController::class, 'createPost'])->name('create-post');
+/* Post Routes */
+Route::get('/post/create', [PostController::class, 'index'])->name('post.create');
+Route::post('post.store', [PostController::class, 'store'])->name('post.store');

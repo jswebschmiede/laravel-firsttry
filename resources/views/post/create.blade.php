@@ -1,9 +1,7 @@
 <x-layout>
-    <x-slot name="title">Dashboard</x-slot>
+    <x-slot name="title">Create Post</x-slot>
     <x-ui.section>
-        <h1 class="text-4xl mb-12 font-bold text-center text-slate-600">Welcome, {{ auth()->user()->name }}!</h1>
-
-        <form class="p-8 w-full border border-slate-200 rounded-md shadow-md" action="{{ route('create-post') }}"
+        <form class="p-8 w-full border border-slate-200 rounded-md shadow-md" action="{{ route('post.store') }}"
             method="POST">
             @csrf
             <legend class="text-xl text-center font-medium text-slate-600">Create a Blog Post</legend>
@@ -34,22 +32,5 @@
                 </button>
             </div>
         </form>
-    </x-ui.section>
-
-    <x-ui.section>
-        <h2 class="text-4xl mb-12 font-bold text-center text-slate-600">Your Blog Posts</h2>
-        @if ($posts->isEmpty())
-            <p class="text-center text-slate-600">You have no posts yet.</p>
-        @else
-            @foreach ($posts as $post)
-                <article class="bg-gray-100 rounded-md p-6 mb-8">
-                    <h2 class="text-2xl font-bold mb-4">{{ $post->title }}</h2>
-                    <time class="block text-sm text-slate-600 mb-4">
-                        created at: {{ $post->created_at->format('M d, Y') }}
-                    </time>
-                    <p>{{ $post->body }}</p>
-                </article>
-            @endforeach
-        @endif
     </x-ui.section>
 </x-layout>

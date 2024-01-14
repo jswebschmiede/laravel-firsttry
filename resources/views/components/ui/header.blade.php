@@ -11,7 +11,10 @@
                 <a title="Dashboard" href="{{ route('dashboard') }}" class="text-slate-600 hover:text-slate-500">
                     Dashboard
                 </a>
-                <form action="{{ route('logout') }}" method="POST">
+                <a title="Create Post" href="{{ route('post.create') }}" class="text-slate-600 hover:text-slate-500">
+                    Create Post
+                </a>
+                <form action="{{ route('user.logout') }}" method="POST">
                     @csrf
                     <button title="Logout" type="submit" class="text-slate-600 hover:text-slate-500">Logout</button>
                 </form>

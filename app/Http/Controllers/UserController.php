@@ -3,12 +3,18 @@
 namespace App\Http\Controllers;
 
 use App\Models\User;
+use Illuminate\View\View;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 
 class UserController extends Controller
 {
-    public function registerAccount(Request $request): RedirectResponse
+    public function index(): View
+    {
+        return view('user.register');
+    }
+
+    public function create(Request $request): RedirectResponse
     {
         $incomingData = $request->validate([
             'name' => 'required|string',
@@ -53,5 +59,17 @@ class UserController extends Controller
         $request->session()->regenerate();
 
         return redirect()->route('dashboard');
+    }
+
+    public function dashboard(): View
+    {
+        $posts = [];
+        if (auth()->check()) {
+            // ignore intelephense error            
+            $posts = auth()->user()->posts()->latest()->get();
+        }
+        return view('user.dashboard', [
+            'posts' => $posts
+        ]);
     }
 }
