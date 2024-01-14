@@ -15,9 +15,14 @@
                             class="bg-slate-600 text-white px-3 py-2 rounded-md shadow-sm hover:bg-slate-500">
                             Edit
                         </a>
-                        <a href="#" class="bg-red-600 text-white px-3 py-2 rounded-md shadow-sm hover:bg-red-500">
-                            Delete
-                        </a>
+                        <form action="{{ route('post.destroy', $post) }}" method="post">
+                            @csrf
+                            @method('delete')
+                            <button type="submit"
+                                class="bg-red-600 text-white px-3 py-2 rounded-md shadow-sm hover:bg-red-500">
+                                Delete
+                            </button>
+                        </form>
                     </div>
 
                     <h2 class="text-2xl font-bold mb-4">{{ $post->title }}</h2>

@@ -46,4 +46,11 @@ class PostController extends Controller
 
         return redirect()->route('dashboard');
     }
+
+    public function destroy(Post $post): RedirectResponse
+    {
+        $post->delete();
+
+        return redirect()->route('dashboard');
+    }
 }
