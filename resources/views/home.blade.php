@@ -2,9 +2,9 @@
     <x-slot name="title">Home</x-slot>
 
     <x-ui.section>
-        @if (session()->has('loggedOut'))
+        @if (session('status'))
             <x-ui.alert type="success">
-                <p>{{ session('loggedOut') }}</p>
+                <p>{{ session('status') }}</p>
             </x-ui.alert>
         @endif
 

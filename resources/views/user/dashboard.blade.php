@@ -2,24 +2,9 @@
     <x-slot name="title">Dashboard</x-slot>
 
     <x-ui.section>
-        @if (session()->has('loggedIn'))
+        @if (session('status'))
             <x-ui.alert type="success">
-                <p>{{ session('loggedIn') }}</p>
-            </x-ui.alert>
-        @endif
-        @if (session()->has('postCreated'))
-            <x-ui.alert type="success">
-                <p>{{ session('postCreated') }}</p>
-            </x-ui.alert>
-        @endif
-        @if (session()->has('postUpdated'))
-            <x-ui.alert type="success">
-                <p>{{ session('postUpdated') }}</p>
-            </x-ui.alert>
-        @endif
-        @if (session()->has('postDeleted'))
-            <x-ui.alert type="success">
-                <p>{{ session('postDeleted') }}</p>
+                <p>{{ session('status') }}</p>
             </x-ui.alert>
         @endif
 

@@ -28,7 +28,7 @@ class PostController extends Controller
             'user_id' => auth()->user()->id
         ]);
 
-        return redirect()->route('dashboard')->with('postCreated', 'Your post has been created!');
+        return redirect()->route('dashboard')->with('status', 'Your post has been created!');
     }
 
     public function update(Request $request, Post $post): RedirectResponse
@@ -44,13 +44,13 @@ class PostController extends Controller
             'body' => $incomingData['body']
         ]);
 
-        return redirect()->route('dashboard')->with('postUpdated', 'Your post has been updated!');
+        return redirect()->route('dashboard')->with('status', 'Your post has been updated!');
     }
 
     public function destroy(Post $post): RedirectResponse
     {
         $post->delete();
 
-        return redirect()->route('dashboard')->with('postDeleted', 'Your post has been deleted!');
+        return redirect()->route('dashboard')->with('status', 'Your post has been deleted!');
     }
 }
