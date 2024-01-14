@@ -36,4 +36,10 @@ Route::post('user.login', [UserController::class, 'login'])->name('user.login');
 
 /* Post Routes */
 Route::get('/post/create', [PostController::class, 'index'])->name('post.create');
+Route::get('/post/{post}/edit', function () {
+    return view('post.edit', [
+        'post' => Post::find(request()->post)
+    ]);
+})->name('post.edit');
 Route::post('post.store', [PostController::class, 'store'])->name('post.store');
+Route::patch('/post/{post}', [PostController::class, 'update'])->name('post.update');

@@ -30,4 +30,20 @@ class PostController extends Controller
 
         return redirect()->route('dashboard');
     }
+
+    public function update(Request $request, Post $post): RedirectResponse
+    {
+        $incomingData = $request->validate([
+            'title' => 'required|string',
+            'body' => 'required|string'
+        ]);
+
+        // Update the post
+        $post->update([
+            'title' => $incomingData['title'],
+            'body' => $incomingData['body']
+        ]);
+
+        return redirect()->route('dashboard');
+    }
 }
