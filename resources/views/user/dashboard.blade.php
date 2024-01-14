@@ -2,6 +2,27 @@
     <x-slot name="title">Dashboard</x-slot>
 
     <x-ui.section>
+        @if (session()->has('loggedIn'))
+            <x-ui.alert type="success">
+                <p>{{ session('loggedIn') }}</p>
+            </x-ui.alert>
+        @endif
+        @if (session()->has('postCreated'))
+            <x-ui.alert type="success">
+                <p>{{ session('postCreated') }}</p>
+            </x-ui.alert>
+        @endif
+        @if (session()->has('postUpdated'))
+            <x-ui.alert type="success">
+                <p>{{ session('postUpdated') }}</p>
+            </x-ui.alert>
+        @endif
+        @if (session()->has('postDeleted'))
+            <x-ui.alert type="success">
+                <p>{{ session('postDeleted') }}</p>
+            </x-ui.alert>
+        @endif
+
         <h1 class="text-4xl mb-12 font-bold text-center text-slate-600">Welcome, {{ auth()->user()->name }}!</h1>
 
         <h2 class="text-4xl mb-12 font-bold text-center text-slate-600">Your Blog Posts</h2>

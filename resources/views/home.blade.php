@@ -1,6 +1,13 @@
 <x-layout>
     <x-slot name="title">Home</x-slot>
+
     <x-ui.section>
+        @if (session()->has('loggedOut'))
+            <x-ui.alert type="success">
+                <p>{{ session('loggedOut') }}</p>
+            </x-ui.alert>
+        @endif
+
         <h1 class="text-4xl mb-12 font-bold text-center text-slate-600">Blog</h1>
 
         @if ($posts->isEmpty())

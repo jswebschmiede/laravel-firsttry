@@ -38,7 +38,7 @@ class UserController extends Controller
     {
         auth()->logout();
 
-        return redirect()->route('home');
+        return redirect()->route('home')->with('loggedOut', 'You have been logged out!');
     }
 
     public function login(Request $request): RedirectResponse
@@ -58,7 +58,7 @@ class UserController extends Controller
         // Regenerate the session
         $request->session()->regenerate();
 
-        return redirect()->route('dashboard');
+        return redirect()->route('dashboard')->with('loggedIn', 'You have been logged in!');
     }
 
     public function dashboard(): View

@@ -1,5 +1,6 @@
 <x-layout>
     <x-slot name="title">Create Post</x-slot>
+
     <x-ui.section>
         <form class="p-8 w-full border border-slate-200 rounded-md shadow-md" action="{{ route('post.store') }}"
             method="POST">
