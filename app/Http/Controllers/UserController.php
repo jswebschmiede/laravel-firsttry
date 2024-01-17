@@ -34,9 +34,11 @@ class UserController extends Controller
         return redirect()->route('dashboard');
     }
 
-    public function logout(): RedirectResponse
+    public function logout(Request $request): RedirectResponse
     {
         auth()->logout();
+        $request->session()->invalidate();
+        $request->session()->regenerateToken();
 
         return redirect()->route('home')->with('status', 'You have been logged out!');
     }
